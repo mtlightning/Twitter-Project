@@ -1,0 +1,228 @@
+@startuml
+class GraphÇizdirme {
+}
+class Graf {
+- BizimHashMap<String,Users> komsulukListesi
++ void kullaniciEkle(String)
++ void takipciEkle(String,String)
++ Iterable<String> getTakipciler(String)
++ void takipcileriYazdır(String)
++ void grafıYazdır(String)
++ void grafıYazdır()
++ BizimHashMap<String,Users> getKomsulukListesi()
+}
+class Users {
+~ String kullaniciAdi
+~ String adSoyad
+~ ınt takipciSayisi
+~ ınt takipEdilenSayisi
+~ String dil
+~ String bolge
+~ BizimArraylist<String> tweetler
+~ BizimArraylist<String> takipEdilenler
+~ BizimArraylist<String> takipciler
++ String getKullaniciAdi()
++ void setKullaniciAdi(String)
++ String getAdSoyad()
++ void setAdSoyad(String)
++ ınt getTakipciSayisi()
++ void setTakipciSayisi(ınt)
++ ınt getTakipEdilenSayisi()
++ void setTakipEdilenSayisi(ınt)
++ String getDil()
++ void setDil(String)
++ String getBolge()
++ void setBolge(String)
++ BizimArraylist<String> getTweetler()
++ void setTweetler(BizimArraylist<String>)
++ BizimArraylist<String> getTakipEdilenler()
++ void setTakipEdilenler(BizimArraylist<String>)
++ Iterable<String> takipEdilenleriGetir()
++ Iterable<String> takipcileriGetir()
++ BizimArraylist<String> getTakipciler()
++ void setTakipciler(CustomLinkedList<String>)
++ void takipcileriYazdir()
++ boolean equals(Object)
++ ınt hashCode()
++ void addTakipEdilen(String)
++ void addTakipci(String)
++ Iterable<? extends String> takipciler()
+}
+class CustomLinkedList {
+- Node head
+- Node tail
+- ınt size
++ void bastan_sona_tarama()
++ void traverseBackward()
++ void basina_ekleme(E)
++ void araya_ekleme(E,ınt)
++ void sona_ekleme(E)
++ void bastan_sil()
++ void aradan_sil(ınt)
++ void sondan_sil()
++ Iterator<E> iterator()
++ void addAll(Iterable<? extends E>)
++ void add(E)
+}
+class CustomLinkedList$Node {
+- E data
+- Node next
+- Node prev
++ E getData()
+}
+class CustomLinkedList$CustomIterator {
+- Node current
++ boolean hasNext()
++ E next()
+}
+class KendiStack {
+- Node<T> top
++ void push(T)
++ T pop()
++ T peek()
++ boolean stackBosMu()
+}
+class KendiStack$Node {
+~ T data
+~ Node<T> next
+}
+class BizimHashMap {
+- {static} ınt DEFAULT_CAPACITY
+- CustomLinkedList<Entry<K,V>>[] kutucuk
+- ınt kapasite
+- boolean empty
++ void put(K,V)
++ V get(K)
++ V getOrDefault(K,V)
++ Iterable<Entry<K,V>> getEntries()
++ Iterable<K> getKeys()
++ void setEmpty(boolean)
++ boolean isEmpty()
++ String toString()
+- ınt getIndex(K)
+}
+class BizimHashMap$Entry {
+- K key
+- V value
++ K getKey()
++ V getValue()
++ void setValue(V)
+}
+class NewJFrame {
+~ DefaultListModel model1
+~ DefaultListModel model2
+~ DefaultListModel model3
+~ Users user
+- javax.swing.JButton butonilgialani
+- javax.swing.JButton jButton1
+- javax.swing.JLabel jLabel1
+- javax.swing.JLabel jLabel2
+- javax.swing.JLabel jLabel3
+- javax.swing.JPanel jPanel1
+- javax.swing.JScrollPane jScrollPane1
+- javax.swing.JScrollPane jScrollPane2
+- javax.swing.JScrollPane jScrollPane3
+- javax.swing.JList<String> text1
+- javax.swing.JList<String> text2
+- javax.swing.JList<String> text3
++ void UsersEkle(Users)
+- void initComponents()
+- void jButton1ActionPerformed(java.awt.event.ActionEvent)
+- void butonilgialaniActionPerformed(java.awt.event.ActionEvent)
++ {static} void main(String[])
+}
+class Node {
+- E data
+- Node<E> next
+- Node<E> prev
++ E getData()
+}
+class TakipEdilenler {
+- List<String> takipEdilenler
++ List<String> getTakipEdilenler()
++ void setTakipEdilenler(List<String>)
+}
+class kullaniciAdiGirisPanel {
++ {static} void main(String[])
+}
+class Tweet {
+- ınt tweetId
+- String icerik
+- String hashtag
++ ınt getTweetId()
++ void setTweetId(ınt)
++ String getIcerik()
++ void setIcerik(String)
++ String getHashtag()
++ void setHashtag(String)
+}
+class KullaniciArrayList {
+~ {static} ınt sizemaxsize
+~ ınt normalsize
++ Users[] kullanicilar
++ void kullaniciEkle(Users)
++ Users[] getKullanicilar()
++ void setKullanicilar(Users[])
+}
+class BizimArraylist {
+- {static} ınt DEFAULT_CAPACITY
+- String[] array
+- ınt size
++ void ekle(String)
++ String get(ınt)
++ ınt size()
++ boolean içeriyorMu(String)
++ void kaldır(String)
+- void ensureCapacity()
++ Iterator<String> iterator()
++ boolean add(String)
++ boolean remove(Object)
++ boolean containsAll(Collection<?>)
++ boolean addAll(Collection<? extends String>)
++ boolean addAll(ınt,Collection<? extends String>)
++ boolean removeAll(Collection<?>)
++ boolean retainAll(Collection<?>)
++ void clear()
++ String set(ınt,String)
++ void add(ınt,String)
++ String remove(ınt)
++ ınt indexOf(Object)
++ ınt lastIndexOf(Object)
++ ListIterator<String> listIterator()
++ ListIterator<String> listIterator(ınt)
++ List<String> subList(ınt,ınt)
++ boolean isEmpty()
++ boolean contains(Object)
++ Object[] toArray()
++ T[] toArray(T[])
+}
+class BizimArraylist$CustomIterator {
+- ınt currentIndex
++ boolean hasNext()
++ String next()
+}
+class Main {
+- {static} ınt TOP_WORDS_COUNT
+- {static} BizimHashMap<String,Integer> kelimeFrekanslari
+~ {static} BizimHashMap<String,Users> kullanıcılar
+~ {static} BizimHashMap<String,Users> followers
+~ {static} BizimHashMap<String,Users> takipEdilenler
++ {static} KullaniciArrayList kullanicilarArrayList
+- {static} Graf graf
++ {static} void main(String[])
+}
+
+
+Iterable <|.. CustomLinkedList
+CustomLinkedList +.. CustomLinkedList$Node
+CustomLinkedList +.. CustomLinkedList$CustomIterator
+Iterator <|.. CustomLinkedList$CustomIterator
+KendiStack +.. KendiStack$Node
+BizimHashMap +.. BizimHashMap$Entry
+JFrame <|-- NewJFrame
+JFrame <|-- kullaniciAdiGirisPanel
+Iterable <|.. BizimArraylist
+List <|.. BizimArraylist
+BizimArraylist +.. BizimArraylist$CustomIterator
+Iterator <|.. BizimArraylist$CustomIterator
+@enduml
